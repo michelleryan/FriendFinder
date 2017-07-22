@@ -1,0 +1,37 @@
+h1 {
+	font-family: 'Lemonada';
+	font-size: 40px;
+	text-align: center;
+	color: blue;
+	}
+
+h2 {
+	font-family: 'Lemonada';
+	font-size: 24px;
+	text-align: left;
+	color: blue;
+}
+
+h3 {
+	font-family: 'Open+Sans';
+	font-size: 14px;
+	font-weight: bold;
+}
+
+h3.label {
+	font-family: 'Open+Sans';
+	font-size: 16px;
+	font-weight: bold;
+}
+
+h3.question {
+	font-family: 'Lemonada';
+	font-size: 16px;
+	color: blue;
+}
+
+footer {
+	font-family: 'Open+Sans';
+	font-size: 14px;
+
+}
