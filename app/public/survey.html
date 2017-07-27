@@ -4,6 +4,7 @@
 	<title>FriendFinder</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- link in bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Lemonada|Open+Sans" rel="stylesheet">
@@ -143,7 +144,7 @@
 				<div class="container">
 					<h1>Best Match</h1>
 					<div id="matchName"></div>
-					<!-- <img id="matchImg" src=""></div> -->
+					<img id="matchImg" src=""></div>
 				</div>
 				
 				
@@ -156,7 +157,7 @@
 				photo: $("#photo").val(),
 				scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(),
 				$("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(),]
-			}
+			};
 			// console.log(userData.name);
 			// console.log(userData.scores[0]);
 
@@ -165,8 +166,11 @@
 
 			//post data to friends API
 			$.post(currentURL + "/api/friends", userData, function(data){
-				$("#matchName").text(data[0].name);
+
+				$("#matchName").text(data.name);
 				$("#matchImg").attr("src", data.photo);
+
+
 
 			});
 		});
