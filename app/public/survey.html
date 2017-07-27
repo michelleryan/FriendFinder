@@ -8,7 +8,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Lemonada|Open+Sans" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	</head>
 <body>
 	<div class="container">
@@ -17,11 +17,11 @@
 		<h2>About You</h2>
 		<form>
   			<div class="form-group">
-    			<h3 class="label">Name (Required)</h3>
+    			<label for="name">Name (Required)</label>
     			<input type="text" class="form-control" id="name" required>
   			</div>
   			<div class="form-group">
-    			<h3 class="label">Link to Photo Image (Required)</h3>
+    			<label for="photo">Link to Photo Image (Required)</label>
     			<input type="text" class="form-control" id="photo" required>
   			</div>
   		
@@ -140,16 +140,33 @@
 				</div>
 			</footer>
 			<!--Modal pop up -->
-			<div class="matchResults">
+			<!-- <div class="matchResults">
 				<div class="container">
 					<h1>Best Match</h1>
 					<div id="matchName"></div>
 					<img id="matchImg" src=""></div>
-				</div>
+				</div> -->
+        <div class="modal fade" id="matchModal" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalTitle">Best Match</h4>
+              </div>
+              <div class="modal-body">
+                <h2 id="matchName"></h2>
+                <img id="matchImg" src="https://images.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg?h=350&auto=compress&cs=tinysrgb">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 				
 				
-			</div>
 	</div>
+
 	<script type="text/javascript">
 		$("#submit").on("click", function(){
 			var userData = {
@@ -158,17 +175,17 @@
 				scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(),
 				$("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(),]
 			};
-			// console.log(userData.name);
-			// console.log(userData.scores[0]);
+			//console.log(userData.name);
+			//console.log(userData.scores[0]);
 
 			//get the current URL
 			var currentURL = window.location.origin;
 
 			//post data to friends API
 			$.post(currentURL + "/api/friends", userData, function(data){
-
-				$("#matchName").text(data.name);
-				$("#matchImg").attr("src", data.photo);
+        $("#matchModal").modal("toggle");
+				// $("#matchName").text(data.name);
+				// $("#matchImg").attr("src", data.photo);
 
 
 

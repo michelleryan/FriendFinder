@@ -18,7 +18,7 @@ app.post("/api/friends", function(req, res) {
 	// console.log(friendData.length);
 	// console.log(friendData[0].name);
 
-	res.json(friendData[0].name);
+	//res.json(friendData[0].name);
 
 	//loop through friends.js friendData array
 	//get score[i] - friendData[i]score[j]
